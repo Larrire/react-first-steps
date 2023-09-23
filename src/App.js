@@ -1,9 +1,9 @@
 import React, { useState, createContext } from "react";
-import Post from "../components/Post";
-import Header from "../components/Header";
-import { getPosts, idMaker, titleMaker } from "../helpers/titleGenerator";
-import Button from "../components/Button";
-import { ThemeProvider } from "../context/ThemeContext";
+import Post from "./components/Post";
+import Header from "./components/Header";
+import Button from "./components/Button";
+import { ThemeProvider } from "./context/ThemeContext";
+import { getPosts, idMaker, titleMaker } from "./helpers";
 
 function App() {
   const [posts, setPosts] = useState(getPosts())
