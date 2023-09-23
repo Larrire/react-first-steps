@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { getPosts, idMaker, titleMaker } from "../helpers/titleGenerator";
 import Button from "../components/Button";
 import { ThemeProvider } from "../context/ThemeContext";
+import styles from './index.modules.css'
 
 function App() {
   const [posts, setPosts] = useState(getPosts())
@@ -27,20 +28,22 @@ function App() {
 
   return <>
     <ThemeProvider>
-      <Header/>
+      <div className={styles.body}>
+        <Header/>
 
-      <h2>Posts</h2>
-      <Button onClick={handleAddPost}>Add post</Button>
-      <hr/>
+        <h2>Posts</h2>
+        <Button onClick={handleAddPost}>Add post</Button>
+        <hr/>
 
-      {posts.map((post, index) => (
-        <Post key={post.title+index}
-          post={post}
-          onRemove={handleRemove}
-          onMarkAsRead={handleMarkAsRead}
-          
-        />
-      ))}
+        {posts.map((post, index) => (
+          <Post key={post.title+index}
+            post={post}
+            onRemove={handleRemove}
+            onMarkAsRead={handleMarkAsRead}
+            
+          />
+        ))}
+      </div>
     </ThemeProvider>
   </>
 }
