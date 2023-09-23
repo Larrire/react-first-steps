@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import { getPosts, idMaker, titleMaker } from "../helpers/titleGenerator";
 import Button from "../components/Button";
 import { ThemeProvider } from "../context/ThemeContext";
-import styles from './index.modules.css'
 
 function App() {
   const [posts, setPosts] = useState(getPosts())
@@ -28,7 +27,7 @@ function App() {
 
   return <>
     <ThemeProvider>
-      <div className={styles.body}>
+      <div>
         <Header/>
 
         <h2>Posts</h2>
