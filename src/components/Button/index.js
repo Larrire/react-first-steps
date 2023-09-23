@@ -9,10 +9,15 @@ export default function Button(props) {
 
   const themeStyle = theme === 'dark'
     ? { background: 'black', color: 'white' }
-    :  null
+    :  { background: 'white', color: 'black' }
 
   const buttonStyle = {
-    ...themeStyle, border: 0, padding: '8px', borderRadius: '50px', cursor: 'pointer'
+    ...themeStyle,
+    border: 0,
+    padding: '8px',
+    borderRadius: '50px',
+    cursor: 'pointer',
+    boxShadow: '0 0 5px rgba(0,0,0,0.1)'
   }
 
   return (

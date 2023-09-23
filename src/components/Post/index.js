@@ -1,18 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PostHeader from './PostHeader'
+import { mergeClass } from '../../helpers'
+import { Post as PostC } from './styles'
 
 export default function Post(props) {
   return (
-    <article style={{border: '1px solid lightgray', marginBottom: '16px', padding: '8px'}}>
+    <PostC
+      onClick={e => {
+        if (props.post.removed) return
+        props.onMarkAsRead(props.post.id)
+      }}
+      removed={props.post.removed}
+    >
       <PostHeader
         post={props.post}
         onRemove={props.onRemove}
         onMarkAsRead={props.onMarkAsRead}
       />
-      <h3>{props.post.subtitle}</h3>
+      <p>{props.post.subtitle}</p>
       Likes: {props.post.likes}
-    </article>
+    </PostC>
   )
 }
 

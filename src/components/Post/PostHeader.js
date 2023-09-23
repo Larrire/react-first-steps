@@ -1,24 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
+import { PostHeader as PostHeaderC, PostHeaderTitle } from './styles'
 
 export default function PostHeader(props) {
-  const titleColor = props.post.read
-    ? 'purple'
-    : 'blue'
-    
   return (
-    <div style={{display: 'flex', gap: '16px', alignItems: 'center'}}>
-      <h1
-        style={{margin: '0', color: titleColor, cursor: 'pointer'}}
-        onClick={() => props.onMarkAsRead(props.post.id)}
-      >
-          {props.post.title}
-        </h1>
-      <div>
-        <Button onClick={() => props.onRemove(props.post.id)}>Remove</Button>
-      </div>
-    </div>
+    <PostHeaderC>
+      <PostHeaderTitle read={props.post.read}>{props.post.title}</PostHeaderTitle>
+      <Button onClick={(e) => {
+          e.stopPropagation();
+          props.onRemove(props.post.id)
+        }}>Remove</Button>
+    </PostHeaderC>
   )
 }
 

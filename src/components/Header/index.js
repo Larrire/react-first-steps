@@ -2,19 +2,17 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button'
 import { ThemeContext } from '../../context/ThemeContext'
+import { Container, Header as HeaderC, Title } from './styles'
 
 export default function Header(props) {
   const { onToggleTheme } = useContext(ThemeContext)
   return (
-    <header>
-      <div style={{display: 'flex', justifyContent: 'space-between'}}>
-        <h1 style={{margin: 0}}>{props.title}</h1>
-        <div>
-          <Button onClick={onToggleTheme}>Toggle theme</Button>
-        </div>
-      </div>
-      {props.children}
-    </header>
+    <HeaderC>
+      <Container>
+        <Title>{props.title}</Title>
+        <Button onClick={onToggleTheme}>Toggle theme</Button>
+      </Container>
+    </HeaderC>
   )
 }
 
